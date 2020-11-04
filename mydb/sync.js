@@ -8,6 +8,8 @@
  require("./Menutype")
  require("./SearchHot")
  require("./User")
+ require("./ShoppingCart")
+
  const sequelize = require("./dbcon");
  sequelize.sync({
      alter:true

@@ -1,6 +1,6 @@
 exports.getErr = function (code = 500, err = "sever error") {
   return {
-    status: code,
+    status: "error",
     msg: err,
   };
 };

@@ -35,6 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use("/api/user", require("./api/user"));
+app.use("/api/shop", require("./api/shop"));
 //app.use("/api/admin", require(""));
 
 const port = 23331;

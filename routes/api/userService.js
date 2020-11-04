@@ -6,11 +6,10 @@ const {getErr,getResult} = require("./getSendResult")
 
 // 通过用户账号获取 用户信息是否存在
 async function getUserByTel(tel) {
-
   const res = await User.findOne({ where: { tel } });
   // 通过手机号码进行查询
   if (res) {
-    return true;
+    return  getResult(res.toJSON());
   }
   return null;
 }
@@ -24,7 +23,7 @@ async function addUser(addObj) {
   const single = await getUserByTel(addObj.tel);
   if (!single) {
     const result = await User.create(addObj);
-    return getResult("add user success ");
+    return getResult(result.toJSON());
   }
   return getErr('100','username is exits!');
 }
@@ -33,11 +32,11 @@ async function login(username, password) {
   var md5pass = md5(password);
   //校验用户名是否存在
   if (username == "") {
-    return getErr('100','username is not allow null !!');
+    return null;
   }
   const userExists = await getUserByTel(username);
   if (userExists == null) {
-    return getErr('100','username is not exits!');
+    return null;
   }
 
   const psw = await User.findOne({
@@ -46,7 +45,7 @@ async function login(username, password) {
       spwd: md5pass,
     },
   });
-  return getResult(psw.toJSON());
+  return psw.toJSON();
   // 密码校验
 }
 
