@@ -3,7 +3,7 @@ const { getErr, getResult } = require("./getSendResult");
 
 //数据格式
 /**
- shoppingList:
+ {shoplist:
  [{
      stype:"水果",
      goods:"富士山->苹果",
@@ -26,17 +26,22 @@ const { getErr, getResult } = require("./getSendResult");
      factory:"广西富士山",
      tel:"15659414657",
  },
-]
+]}
 
  */
 
 async function addShopping(shoppingInfo) {
+  console.log(shoppingInfo);
   if (!Array.isArray(shoppingInfo)) {
     return getErr("100", " data typeof error");
   }
 
   const result = ShoppingCarts.bulkCreate(shoppingInfo);
-  return getResult(" shopping success!");
+  if (result) {
+    return getResult("添加购物车成功！");
+  } else {
+    return getErr("100", "data type of error ");
+  }
 }
 
 // 查询商品购物车列表
@@ -47,6 +52,7 @@ async function getShoppingInfo(tel) {
   const result = ShoppingCarts.findAndCountAll({
     where: { tel, status: 0 },
     attributes: [
+      "id",
       "stype",
       "goods",
       "price",
@@ -56,9 +62,26 @@ async function getShoppingInfo(tel) {
       "when_in_logged",
     ],
   });
-  console.log(result);
+  // console.log(result);
   return result;
 }
+async function getShoppingInfoByQuery(query) {
+  const result = ShoppingCarts.findAndCountAll({
+    where: { ...query },
+    attributes: [
+      "id",
+      "stype",
+      "goods",
+      "price",
+      "cnt",
+      "unit",
+      "factory",
+      "when_in_logged",
+    ],
+  });
+  return result;
+}
+
 async function update(shoppingInfo) {
   if (!Array.isArray(shoppingInfo)) {
     return getErr("100", " data typeof error");
@@ -77,9 +100,9 @@ async function update(shoppingInfo) {
     );
   });
   return getResult(" shopping success!");
-  
 }
 
 exports.getShoppingInfo = getShoppingInfo;
 exports.addShopping = addShopping;
 exports.update = update;
+exports.getShoppingInfoByQuery = getShoppingInfoByQuery;

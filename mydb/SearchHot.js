@@ -1,5 +1,5 @@
 const sequelize = require("./dbcon");
-const {  DataTypes } = require("sequelize");
+const { Datatypes, DataTypes } = require("sequelize");
 
 /**
  * querywords 查询关键词
