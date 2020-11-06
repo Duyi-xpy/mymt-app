@@ -14,18 +14,18 @@ app.use(
   })
 );
 
-// app.use(
-//   cors({
-//     origin(origin, callback) {
-//       if (!origin) {
-//         callback(null, "*");
-//         return;
-//       }
-//       callback(null, origin);
-//     },
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin) {
+        callback(null, "*");
+        return;
+      }
+      callback(null, origin);
+    },
+    credentials: true,
+  })
+);
 
 // const cookieParser = require("cookie-parser");
 // app.use(cookieParser());
@@ -35,6 +35,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use("/api/user", require("./api/user"));
+app.use("/api/shop", require("./api/shop"));
+app.use("/api/searchHot", require("./api/searchHot"));
+app.use("/api/interface", require("./api/interface"));
 //app.use("/api/admin", require(""));
 
 const port = 23331;

@@ -1,5 +1,6 @@
 const md5 = require("md5");
 const User = require("../mydb/User");
+const { getErr, getResult } = require("./getSendResult");
 
 // 通过用户账号获取 用户信息是否存在
 async function getUserByTel(tel) {
@@ -14,26 +15,30 @@ async function getUserByTel(tel) {
  * addObj {tel:"1",spwd:""}
  * 用户名,密码
  */
-async function addUser(addObj) {
-  addObj.spwd = md5(addObj.spwd);
+async function addUser(obj) {
+  const addObj={};
+  addObj.tel = obj.userName;
+  addObj.spwd = md5(obj.password);
   //校验数据库内是否存在 对应注册信息 已经存在返回， 未注册直接注册
   const single = await getUserByTel(addObj.tel);
+  console.log(single);
   if (!single) {
     const result = await User.create(addObj);
-    return result.toJSON();
+    return getResult("用户添加成功。");
   }
-  return null;
+  // return null;
+  return getErr("","该用户已经被注册");
 }
 
 async function login(username, password) {
   var md5pass = md5(password);
   //校验用户名是否存在
   if (username == "") {
-    return null;
+    return getErr("", "用户名不能为空");
   }
   const userExists = await getUserByTel(username);
   if (userExists == null) {
-    return null;
+    return getErr("", "用户信息不存在");
   }
 
   const psw = await User.findOne({
@@ -42,7 +47,8 @@ async function login(username, password) {
       spwd: md5pass,
     },
   });
-  return psw.toJSON();
+
+  return getResult(psw.toJSON().tel);
   // 密码校验
 }
 

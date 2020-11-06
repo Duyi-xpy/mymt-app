@@ -12,7 +12,12 @@ const {
   cityList,
   goodsList,
   classify,
+  search
 } = require("../../service/interfaceService");
+
+router.get("/search", (req, res) => {
+  res.send(search);
+});
 
 router.get("/searchHotWords", (req, res) => {
   res.send(searchHotWords);

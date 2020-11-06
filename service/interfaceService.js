@@ -10327,6 +10327,7 @@ const goodsList = {
 }
 
 exports.searchHotWords = searchHotWords;
+exports.search = search;
 exports.getPosition = getPosition;
 exports.resultsByKeywords = resultsByKeywords;
 exports.nav = nav;
