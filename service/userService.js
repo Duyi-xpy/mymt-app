@@ -16,7 +16,7 @@ async function getUserByTel(tel) {
  * 用户名,密码
  */
 async function addUser(obj) {
-  const addObj={};
+  const addObj = {};
   addObj.tel = obj.userName;
   addObj.spwd = md5(obj.password);
   //校验数据库内是否存在 对应注册信息 已经存在返回， 未注册直接注册
@@ -27,7 +27,7 @@ async function addUser(obj) {
     return getResult("用户添加成功。");
   }
   // return null;
-  return getErr("","该用户已经被注册");
+  return getErr("", "该用户已经被注册");
 }
 
 async function login(username, password) {
@@ -47,8 +47,12 @@ async function login(username, password) {
       spwd: md5pass,
     },
   });
+  if (psw != null) {
+    return getResult(psw.toJSON().tel);
+  } else {
+    return getErr("", "用户名密码错误");
+  }
 
-  return getResult(psw.toJSON().tel);
   // 密码校验
 }
 

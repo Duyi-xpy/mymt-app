@@ -28,11 +28,11 @@ const ShoppingCarts = sequelize.define(
     },
     price: {
       type: DataTypes.INTEGER,
-      defaultValue:0.0
+      defaultValue: 0.0,
     },
     cnt: {
       type: DataTypes.INTEGER,
-      defaultValue:0
+      defaultValue: 0,
     },
     unit: {
       type: DataTypes.STRING,
@@ -49,9 +49,12 @@ const ShoppingCarts = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    tel:{
-        type:DataTypes.STRING,
-    }
+    tel: {
+      type: DataTypes.STRING,
+    },
+    payid: {
+      type: DataTypes.STRING,
+    },
   },
   {
     tableName: "t_shopping_carts",
@@ -62,4 +65,4 @@ const ShoppingCarts = sequelize.define(
   }
 );
 
-module.exports = ShoppingCarts
+module.exports = ShoppingCarts;
