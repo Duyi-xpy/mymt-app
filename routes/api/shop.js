@@ -10,7 +10,6 @@ router.get("/info", async (req, res) => {
 router.post("/find", async (req, res) => {
   const result = await shopping.getShoppingInfoByQuery(req.body);
   res.send(result);
-  
 });
 
 router.post("/add", async (req, res) => {
@@ -22,6 +21,12 @@ router.post("/add", async (req, res) => {
 
 router.post("/update", async (req, res) => {
   const result = await shopping.update(req.body.shoplist);
+  res.send(result);
+});
+
+router.post("/del", async (req, res) => {
+  // console.log(req.body);
+  const result = await shopping.del(req.body.shoplist);
   res.send(result);
 });
 

@@ -67,7 +67,7 @@ async function getShoppingInfo(tel) {
 }
 async function getShoppingInfoByQuery(query) {
   const result = ShoppingCarts.findAndCountAll({
-    where: { ...query },
+    where: { ...query, status: 0 },
     attributes: [
       "id",
       "stype",
@@ -102,7 +102,21 @@ async function update(shoppingInfo) {
   return getResult(" shopping success!");
 }
 
+async function del(shoppingInfo) {
+  shoppingInfo.forEach(async (ele) => {
+    const result = await ShoppingCarts.destroy({
+      where: {
+        id: ele.id,
+      },
+    });
+  });
+  if (result != null) {
+    return getResult(" 删除成功!");
+  }
+}
+
 exports.getShoppingInfo = getShoppingInfo;
 exports.addShopping = addShopping;
 exports.update = update;
 exports.getShoppingInfoByQuery = getShoppingInfoByQuery;
+exports.del = del;

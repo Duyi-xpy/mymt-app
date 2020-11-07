@@ -20,6 +20,10 @@ const pay = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    payid: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     tableName: "t_pay_info",

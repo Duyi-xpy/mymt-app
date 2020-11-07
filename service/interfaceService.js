@@ -10273,58 +10273,141 @@ const cityList = {
 };*/
 
 const goodsList = {
-    "status": "success",
-    "msg": "成功",
-    "data": [{
-        "image": "http://p0.meituan.net/dpmerchantalbum/6c83d5727ce38eb0f73664ea4c376a92210951.jpg@275w_156h_1e_1c",
-        "title": "火鸡老店",
-        "type": "food",
-        "score": 4.1,
-        "commentNum": 0,
-        "comment": [{
-            "username": "xxxx",
-            "evalaute": "好吃"
-        }],
-        "tab": ["火锅", "沙河"],
-        "address": "昌平区小汤山尚信村沿温榆河畔北岸向西3．5公里",
-        "avgPrice": 64,
-        "dealItems": [{
-            "title": "火鸡宴，建议10-14人使用",
-            "price": 909,
-            "counterPrice": 1150,
-            "saleNum": 0,
-            "priceType": "元"
-        }]
-    }, {
-        "image": "http://p0.meituan.net/msmerchant/b34690f52ebdda221e4153c35878de8c2243192.jpg@275w_156h_1e_1c",
-        "title": "井格重庆火锅（哈西万达店）",
-        "type": "food",
-        "score": 5,
-        "commentNum": 2555,
-        "comment": [{
-            "username": "xxxx",
-            "evalaute": "好吃"
-        }],
-        "tab": ["重庆火锅", "哈西万达"],
-        "address": "南岗区中兴大街168号万达广场3层3055",
-        "avgPrice": 95,
-        "dealItems": [
-        //     {
-        //     "title": "100元代金券1张",
-        //     "price": 28.9,
-        //     "counterPrice": 100,
-        //     "saleNum": 3409,
-        //     "priceType": "元"
-        // }, 
+  status: "success",
+  msg: "成功",
+  data: [
+    {
+      image:
+        "http://p0.meituan.net/dpmerchantalbum/6c83d5727ce38eb0f73664ea4c376a92210951.jpg@275w_156h_1e_1c",
+      title: "火鸡老店",
+      type: "food",
+      score: 4.1,
+      commentNum: 0,
+      comment: [
         {
-            "title": "四人套餐，提供免费WiFi",
-            "price": 280,
-            "counterPrice": 458,
-            "saleNum": 152,
-            "priceType": "元"
-        }]
-    }]
-}
+          username: "xxxx",
+          evalaute: "好吃",
+        },
+      ],
+      tab: ["火锅", "沙河"],
+      address: "昌平区小汤山尚信村沿温榆河畔北岸向西3．5公里",
+      avgPrice: 64,
+      dealItems: [
+        {
+          title: "火鸡宴，建议10-14人使用",
+          price: 909,
+          counterPrice: 1150,
+          saleNum: 0,
+          priceType: "元",
+        },
+      ],
+    },
+    {
+      image:
+        "http://p0.meituan.net/msmerchant/b34690f52ebdda221e4153c35878de8c2243192.jpg@275w_156h_1e_1c",
+      title: "井格重庆火锅（哈西万达店）",
+      type: "food",
+      score: 5,
+      commentNum: 2555,
+      comment: [
+        {
+          username: "xxxx",
+          evalaute: "好吃",
+        },
+      ],
+      tab: ["重庆火锅", "哈西万达"],
+      address: "南岗区中兴大街168号万达广场3层3055",
+      avgPrice: 95,
+      dealItems: [
+        {
+          title: "四人套餐，提供免费WiFi",
+          price: 280,
+          counterPrice: 458,
+          saleNum: 152,
+          priceType: "元",
+        },
+      ],
+    },
+    {
+      image:
+        "https://p1.meituan.net/deal/__32773420__6682146.jpg@380w_214h_1e_1c",
+      title: "金麦郎蛋糕（金祥路店）",
+      type: "food",
+      score: 4.5,
+      commentNum: 1082,
+      comment: [
+        {
+          username: "xxxx",
+          evalaute: "好吃",
+        },
+      ],
+      tab: ["蛋糕", "金麦"],
+      address: "仓山区金祥路413号丽景天成10号楼",
+      avgPrice: 70,
+      dealItems: [
+        {
+          title: "周年庆双人套餐",
+          price: 235,
+          counterPrice: 166,
+          saleNum: 5013,
+          priceType: "元",
+        },
+      ],
+    },
+    {
+      image:
+        "https://p0.meituan.net/208.126/deal/7829fca23d0050aeb90425fb4714ae8491933.jpg@100w_100h_1e_1c",
+      title: "极盐铁板烧（仓山万达店）",
+      type: "food",
+      score: 4.5,
+      commentNum: 230,
+      comment: [
+        {
+          username: "xxxx",
+          evalaute: "好吃",
+        },
+      ],
+      tab: ["板烧", "铁板"],
+      address: "仓山区浦上大道276号仓山万达广场3楼",
+      avgPrice: 167,
+      dealItems: [
+        {
+          title: "双人自助午餐",
+          price: 536,
+          counterPrice: 402,
+          saleNum: 50,
+          priceType: "元",
+        },
+      ],
+    },
+    {
+      image:
+        "https://p1.meituan.net/deal/__23015688__1042847.jpg@380w_214h_1e_1c",
+      title: "印象东北（达明路店）",
+      type: "food",
+      score: 4.7,
+      commentNum: 3185,
+      comment: [
+        {
+          username: "xxxx",
+          evalaute: "好吃",
+        },
+      ],
+      tab: ["川菜"],
+      address: "鼓楼区达明路达明新村138号6号店（近鼓西路）",
+      avgPrice: 46,
+      dealItems: [
+        {
+          title: "川闽4人餐",
+          price: 199,
+          counterPrice: 176,
+          saleNum: 436,
+          priceType: "元",
+        },
+      ],
+    },
+  ],
+};
 
 exports.searchHotWords = searchHotWords;
 exports.search = search;

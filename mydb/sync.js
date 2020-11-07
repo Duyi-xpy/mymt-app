@@ -9,6 +9,7 @@ require("./Menutype");
 require("./SearchHot");
 require("./User");
 require("./pay");
+require("./ShoppingCart");
 const sequelize = require("./dbcon");
 sequelize
   .sync({

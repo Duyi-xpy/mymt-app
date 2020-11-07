@@ -38,6 +38,7 @@ app.use("/api/user", require("./api/user"));
 app.use("/api/shop", require("./api/shop"));
 app.use("/api/searchHot", require("./api/searchHot"));
 app.use("/api/interface", require("./api/interface"));
+app.use("/api/pay", require("./api/pay"));
 //app.use("/api/admin", require(""));
 
 const port = 23331;
